@@ -12,3 +12,4 @@ commonLabels:
 # Set sync wave for Argo CD to ensure this is applied after operators are ready
 commonAnnotations:
   argocd.argoproj.io/sync-wave: "2"
+  argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true

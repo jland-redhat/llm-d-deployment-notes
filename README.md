@@ -22,5 +22,10 @@ Can be installed using the following command:
 oc apply -k cluster-operators
 ```
 
-Or using gitops which is what I recommend.
+Or using gitops which is what I recommend:
+
+```bash
+oc apply -f cluster-operators/application.yaml
+```
+
 

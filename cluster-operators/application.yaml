@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster-operators-llm-d
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: default # This should not matter
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: cluster-operators
+    repoURL: 'https://github.com/jland-redhat/llm-d-deployment-notes.git'
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
