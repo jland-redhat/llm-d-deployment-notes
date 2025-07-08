@@ -1,26 +1,27 @@
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: argocd-nfd-gpu-permissions
   namespace: openshift-nfd
   annotations:
     argocd.argoproj.io/sync-wave: "299"
 rules:
-- apiGroups: ["nfd.openshift.io", "nvidia.com"]
+- apiGroups:
+  - "nfd.openshift.io"
+  - "nvidia.com"
   resources: ["*"]
   verbs: ["*"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: argocd-nfd-gpu-permissions-binding
-  namespace: openshift-nfd
   annotations:
     argocd.argoproj.io/sync-wave: "299"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: argocd-nfd-gpu-permissions
 subjects:
 - kind: ServiceAccount
